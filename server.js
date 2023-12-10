@@ -19,7 +19,6 @@ mongoose
   });
 
 const app = express();
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -31,7 +30,7 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
-
+app.use('/images',express.static('images'))
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
